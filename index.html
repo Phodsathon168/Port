@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — [ชื่อของคุณ]</title>
+  <title>Portfolio — Phodsathon Wiphahas</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <div id="scroll-progress"></div>
+  <div id="cursor-glow"></div>
+  <button id="back-to-top" aria-label="กลับด้านบน">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <!-- ====== NAVBAR ====== -->
   <nav id="navbar">
@@ -30,9 +35,10 @@
 
   <!-- ====== HERO ====== -->
   <section id="hero">
-    <div class="hero-bg-grid"></div>
+    <canvas id="bg-canvas"></canvas>
     <div class="hero-content">
-      <p class="hero-greeting reveal">สวัสดีครับ ผม</p>
+      <span class="hero-welcome reveal">✦ &nbsp; WELCOME TO MY PORTFOLIO &nbsp; ✦</span>
+      <p class="hero-greeting reveal delay-1">สวัสดีครับ ผม</p>
       <h1 class="hero-name reveal delay-1">Phodsathon Wiphahas</h1>
       <div class="hero-role reveal delay-2">
 
@@ -49,7 +55,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
           ดูผลงาน
         </a>
-        <a href="Resume.pdf" class="btn btn-outline" download>
+        <a href="Resume1.pdf" class="btn btn-outline" download>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Resume
         </a>
@@ -64,41 +70,43 @@
   <section id="about">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-num"></span>
+        <span class="section-num">01</span>
         <h2>เกี่ยวกับผม</h2>
       </div>
       <div class="about-grid">
         <div class="about-photo reveal">
           <div class="photo-frame">
             <div class="photo-placeholder">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <img src="picture/1.jpg" alt="Profile Photo" />
-              <span></span>
+              <img src="picture/8.png" alt="Profile Photo" />
             </div>
-          </div>
-          
           </div>
         </div>
         <div class="about-text reveal delay-1">
           <p class="about-lead">
-            ผู้ที่มีความมุ่งมั่นในการเป็น 'สะพานเชื่อม' ระหว่างความต้องการทางธุรกิจและทีมพัฒนาซอฟต์แวร์
+            ผู้ที่มีความมุ่งมั่นในการเป็นสะพานเชื่อมระหว่างความต้องการทางธุรกิจและทีมพัฒนาซอฟต์แวร์
           </p>
           <p>
-            กำลังศึกษาระดับปริญญาตรีสาขา[เทคโนโลยีสารสนเทศ] จากมหาวิทยาลัยเกษตรศาสตร์ 
-            มีความสนใจเป็นพิเศษในการรวบรวม Requirement วิเคราะห์กระบวนการทำงาน (Business Process) 
-            และแปลงเป็นโซลูชันทางไอทีที่จับต้องได้ 
+            กำลังศึกษาระดับปริญญาตรี ชั้นปีที่ 4 สาขาเทคโนโลยีสารสนเทศ จากมหาวิทยาลัยเกษตรศาสตร์
+            มีประสบการณ์ออกแบบและพัฒนาโปรเจกต์หลากหลาย ทั้ง Web Application, Mobile App,
+            ระบบ IoT และ AI Model Training
           </p>
           <p>
-            เชื่อในหลักการว่าระบบที่ดีเริ่มต้นจากการเข้าใจปัญหาอย่างลึกซึ้ง ไม่ใช่แค่การเขียน requirement ให้ครบถ้วน มุ่งมั่นพัฒนาตนเองอย่างต่อเนื่องเพื่อก้าวสู่การเป็น Senior Business Analyst ที่สามารถขับเคลื่อนโครงการได้ตั้งแต่ต้นจนจบอย่างมีคุณภาพ
+            มีความสนใจเป็นพิเศษในการรวบรวม Requirement วิเคราะห์กระบวนการทางธุรกิจ
+            และแปลงเป็นโซลูชันไอทีที่จับต้องได้ พร้อมนำทักษะ Analytical &amp; Problem Solving
+            ไปสร้างคุณค่าในสภาพแวดล้อมการทำงานจริง
           </p>
           <div class="about-links">
-            <a href="mailto:wiphahasnp@email.com" class="text-link">
+            <a href="mailto:wiphahasnp@gmail.com" class="text-link">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              wiphahasnp@email.com
+              wiphahasnp@gmail.com
             </a>
             <a href="https://github.com/Phodsathon168" target="_blank" class="text-link">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/phodsathon-wiphahas-567960433/" target="_blank" class="text-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
             </a>
           </div>
         </div>
@@ -110,7 +118,7 @@
   <section id="skills">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-num"></span>
+        <span class="section-num">02</span>
         <h2>ทักษะความสามารถ</h2>
       </div>
       <div class="skills-grid">
@@ -143,8 +151,9 @@
           </div>
           <div class="skill-tags">
             <span class="tag">MySQL</span>
+            <span class="tag">PostgreSQL</span>
             <span class="tag">Firebase</span>
-            <span class="tag">phpmyadmin</span>           
+            <span class="tag">phpmyadmin</span>
           </div>
         </div>
 
@@ -153,19 +162,40 @@
             <div class="skill-icon skill-icon--tools">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
             </div>
-            <h3> Tools</h3>
+            <h3>Tools</h3>
           </div>
           <div class="skill-tags">
-            <span class="tag">Docker</span>
-            <span class="tag">Postman</span>
             <span class="tag">Figma</span>
-            <span class="tag">Visual Studio Code</span>
             <span class="tag">draw.io</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Excel</span>
-            <span class="tag">Word</span>
-            <span class="tag">DBeaver</span>
             <span class="tag">Canva</span>
+            <span class="tag">Visual Studio Code</span>
+            <span class="tag">Prisma</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Microsoft Office</span>
+            <span class="tag">AI Tools</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Postman</span>
+            <span class="tag">Docker</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal delay-3">
+          <div class="skill-card-header">
+            <div class="skill-icon skill-icon--ba">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            </div>
+            <h3>Business Analysis</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Requirements Gathering</span>
+            <span class="tag">BPMN</span>
+            <span class="tag">DFD / UML</span>
+            <span class="tag">Use Case</span>
+            <span class="tag">BRD / SRS</span>
+            <span class="tag">User Story</span>
+            <span class="tag">JIRA</span>
+            <span class="tag">Miro</span>
+            <span class="tag">Wireframing</span>
           </div>
         </div>
 
@@ -177,7 +207,7 @@
   <section id="projects">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-num"></span>
+        <span class="section-num">03</span>
         <h2>กิจกรรม/ผลงานเด่น</h2>
         <p class="section-sub">โปรเจกต์ที่ภาคภูมิใจและแสดงถึงความสามารถจริง</p>
       </div>
@@ -200,8 +230,8 @@
 
 
             </div>
-            <h3 class="project-title">เข้าเยี่ยมชมศึกษาดูงาน ณ บริษัท อินเทอร์เน็ตประเทศไทย จำกัด(มหาชน)จังหวัดสระบุรี </h3>
-            
+            <h3 class="project-title">เข้าเยี่ยมชมศึกษาดูงาน ณ บริษัท อินเทอร์เน็ตประเทศไทย จำกัด(มหาชน) จังหวัดสระบุรี</h3>
+            <p class="project-desc">ศึกษาโครงสร้างพื้นฐาน IT ระดับประเทศ ครอบคลุม Data Center, Network Infrastructure และแนวทางการบริหารจัดการความปลอดภัยทางไซเบอร์ในองค์กรขนาดใหญ่</p>
           </div>
         </article>
  
@@ -222,9 +252,9 @@
               </div>
               <span class="project-cat"></span>
             </div>
-            <h3 class="project-title">เข้าเยี่ยมชม Zahira Farm (ซาฮิร่าฟาร์ม) การนำระบบ IOT มาประยุกต์ใช้ในการบริหารจัดการ ได้อย่างดีและมีประสิทธิภาพ</h3>
+            <h3 class="project-title">เข้าเยี่ยมชม Zahira Farm (ซาฮิร่าฟาร์ม) การนำระบบ IoT มาประยุกต์ใช้ในการบริหารจัดการอย่างมีประสิทธิภาพ</h3>
+            <p class="project-desc">เรียนรู้การนำ IoT Sensor มาใช้ใน Smart Farm ตรวจวัดสภาพแวดล้อม ความชื้น อุณหภูมิ และเชื่อมต่อกับ Cloud Platform เพื่อวิเคราะห์ข้อมูลแบบ Real-time</p>
             <div class="project-links">
-              
             </div>
           </div>
         </article>
@@ -246,9 +276,9 @@
               </div>
 
             </div>
-            <h3 class="project-title">ได้เช้าร่วมโครงการเปิดโลกทักษะ AI และความปลอดภัยทางไซเบอร์”เพื่อส่งเสริมองค์ความรู้พื้นฐานด้านความมั่นคงความปลอดภัยทางไซเบอร์ (Cybersecurity) และปัญญาประดิษฐ์ (Artificial Intelligence:AI) ผ่านเนื้อหาหลักสูตร Microsoft AI Skills และความรู้ด้าน Cybersecurity</h3>
-            <div class="project-links">
-              
+            <h3 class=”project-title”>เข้าร่วมโครงการเปิดโลกทักษะ AI และความปลอดภัยทางไซเบอร์</h3>
+            <p class=”project-desc”>อบรมหลักสูตร Microsoft AI Skills ครอบคลุม Machine Learning, Prompt Engineering และ Cybersecurity พื้นฐาน ได้รับความรู้ด้านการป้องกันภัยคุกคามและแนวทาง Zero Trust Security</p>
+            <div class=”project-links”>
             </div>
           </div>
         </article>
@@ -269,7 +299,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
               </div>
             </div>
-            <h3 class="project-title">ได้เป็นผู้สอนในฐานการเขียนโปรแกรมเบื้องต้นโครงการค่าย Turn IT On ครั้งที่ 17</h3>
+            <h3 class="project-title">วิทยากรฐานการเขียนโปรแกรมเบื้องต้น โครงการค่าย Turn IT On ครั้งที่ 17</h3>
+            <p class="project-desc">ออกแบบและสอนเนื้อหาการเขียนโปรแกรมเบื้องต้นแก่นักเรียนมัธยมศึกษา ฝึกทักษะการสื่อสาร การถ่ายทอดความรู้ และการแก้ปัญหาเฉพาะหน้าในฐานะผู้สอน</p>
             <div class="project-links">
             </div>
           </div>
@@ -291,7 +322,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
               </div>
             </div>
-            <h3 class="project-title">ทำ Project ของรายวิชา IoT(Internet of Things) เกี่ยวกับเรื่อง " ระบบตรวจจับสภาพอากาศในห้องครัว"</h3>
+            <h3 class="project-title">Project IoT — ระบบตรวจจับสภาพอากาศในห้องครัว</h3>
+            <p class="project-desc">พัฒนาระบบ IoT ด้วย ESP32 และ Sensor ตรวจจับแก๊ส/อุณหภูมิ ตรวจวัดควัน แก๊สรั่ว และความร้อนแบบ Real-time พร้อมระบบแจ้งเตือนอัตโนมัติ (LED, Buzzer, พัดลม) และ Live Dashboard ผ่าน Firebase และ NETPIE</p>
             <div class="project-links">
             </div>
           </div>
@@ -312,7 +344,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
               </div>
             </div>
-            <h3 class="project-title">ทำ Project การใช้เทรน AI ในการตรวจหาโรคในใบมะเขือเทศ</h3>
+            <h3 class="project-title">Project AI — ตรวจจับโรคในใบมะเขือเทศด้วย Machine Learning</h3>
+            <p class="project-desc">วิเคราะห์อาการโรคและสร้าง Dataset กว่า 1,000 ภาพด้วย Roboflow ฝึก Model YOLOv11 Object Detection ด้วย Python ได้ความแม่นยำสูงถึง 96% พร้อมประเมิน Feasibility สำหรับการใช้งานจริงในภาคเกษตร</p>
             <div class="project-links">
               <button class="project-link" onclick="openPdfModal('Tran.pdf', 'Computer-Based Detection of Diseases in Tomato Leaves')">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -334,7 +367,7 @@
   <section id="experience">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-num"></span>
+        <span class="section-num">04</span>
         <h2>Workshop</h2>
       </div>
       <div class="timeline">
@@ -433,7 +466,7 @@
       <div class="footer-inner">
         <div class="footer-main reveal">
           <h2 class="footer-title">พร้อมรับโอกาสใหม่<br />และความท้าทาย</h2>
-          <a href="mailto:your@email.com" class="btn btn-primary btn-lg">
+          <a href="mailto:wiphahasnp@gmail.com" class="btn btn-primary btn-lg">
             ส่งอีเมลหาผม
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -441,11 +474,15 @@
         <div class="footer-contacts reveal delay-1">
           <div class="contact-item">
             <span class="contact-label">Email</span>
-            <a href="mailto:wiphahasnp@email.com" class="contact-value">wiphahasnp@email.com</a>
+            <a href="mailto:wiphahasnp@gmail.com" class="contact-value">wiphahasnp@gmail.com</a>
           </div>
           <div class="contact-item">
             <span class="contact-label">GitHub</span>
             <a href="https://github.com/Phodsathon168" target="_blank" class="contact-value">github.com/Phodsathon168</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/phodsathon-wiphahas-567960433/" target="_blank" class="contact-value">linkedin.com/in/phodsathon-wiphahas</a>
           </div>
           <div class="contact-item">
             <span class="contact-label">Location</span>
@@ -458,6 +495,9 @@
         <div class="footer-social">
           <a href="https://github.com/Phodsathon168" target="_blank" aria-label="GitHub">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/phodsathon-wiphahas-567960433/" target="_blank" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
         </div>
       </div>
